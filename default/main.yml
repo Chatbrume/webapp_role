@@ -1,9 +1,5 @@
 ---
-administrator: Nioche
-my_ansible_user: admin
-
-instance:
-  name: INTEGRAL
-  port: 8080
-  site_name: webapp
-  title: MyWebApp
+ansible_user: admin
+port: 8080
+project_name: webapp
+title: MyWebApp
