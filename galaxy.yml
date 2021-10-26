@@ -8,7 +8,7 @@ authors:
 description: Install webapp
 license_file: COPYING
 tags:
-  - v1
+  - V1
 repository: https://github.com/Chatbrume/webapp_role.git
 documentation: https://github.com/Chatbrume/webapp_role.git
 homepage: https://github.com/Chatbrume/webapp_role.git
