@@ -3,3 +3,4 @@ ansible_user: admin
 port: 8080
 project_name: webapp
 title: MyWebApp
+host_id: 10.0.6.4

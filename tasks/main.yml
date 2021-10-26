@@ -17,7 +17,7 @@
   docker_container:
     name: "{{ project_name }}"
     image: httpd
-    ports: 
+    ports:
       - "{{ port }}:80"
     volumes:
       - /home/{{ ansible_user }}/{{ project_name }}/:/usr/local/apache2/htdocs/:rw
