@@ -1,0 +1,14 @@
+---
+administrator: Nioche
+my_ansible_user: admin
+
+instance:
+  name: INTEGRAL
+  port: 8080
+  site_name: webapp
+  title: MyWebApp
+
+#possibility to configure simultaneous one, two or 3 BDD
+db_qty: 3
+list_db: True
+host_ip: 10.0.1.4

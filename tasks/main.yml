@@ -1,0 +1,53 @@
+#Tasks of our roles
+# - name: Install EPEL repo
+#   package: 
+#     name: "{{ item }}"
+#     state: present
+#   when: ansible_distribution == "CentOS"
+#   loop:
+#     - epel-release
+
+# - name: install python-pip
+#   package: 
+#     name: python3-pip
+#     state: present 
+
+# - name: Install docker python
+#   pip: 
+#     name:
+#       docker-py
+#     executable: pip3
+
+- name: create webapp_files
+  file:
+    path: "/home/{{ ansible_user }}/{{ instance.site_name }}/"
+    recurse: yes
+    state: directory
+
+#//////////////////////////////////////////////////
+
+- name: set variable company_name for company
+  set_fact:
+    company_name: "{{ instance.name }}"
+    site_name: "{{ instance.site_name }}"
+    port: "{{ instance.port }}"
+    cpy_port: "{{ instance.port }}"
+  when: db_qty > 0
+
+- name: generate webapp_config_file for company
+  template:
+    src: "{{ instance.site_name }}.conf.j2"
+    dest: "/home/{{ ansible_user }}/{{ instance.site_name }}/config/{{ instance.site_name }}.conf"
+  when: db_qty > 0
+
+- name: generate docker-compose_file for company
+  template:
+    src: "docker-compose.yml.j2"
+    dest: "/home/{{ ansible_user }}/{{ instance.site_name }}/docker-compose.yml"
+  when: db_qty > 0
+
+- name: "Deploy apps for company"
+  command: "docker-compose up -d"
+  args:
+    chdir: "/home/{{ ansible_user }}/{{ instance.site_name }}"
+  when: db_qty > 0
