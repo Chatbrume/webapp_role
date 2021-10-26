@@ -11,7 +11,7 @@
 - name: Copy index template with variable
   template: 		
     src: index.html.j2
-    dest: /home/{{ ansible_user }}/{{ instance_1.site_name }}/index.html
+    dest: /home/{{ ansible_user }}/{{ instance.site_name }}/index.html
 
 - name: "launch docker container"
   docker_container:

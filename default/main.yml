@@ -7,6 +7,4 @@ instance:
   port: 8080
   site_name: webapp
   title: MyWebApp
-
-#possibility to configure simultaneous one, two or 3 BDD
-host_ip: 10.0.1.4
+  host_ip: 10.0.1.4
